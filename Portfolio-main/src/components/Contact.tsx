@@ -20,6 +20,7 @@ export default function Contact() {
     email: "",
     message: "",
   });
+  const [status, setStatus] = useState<"idle" | "sending" | "sent" | "error">("idle");
 
   useEffect(() => {
     const ctx = gsap.context(() => {
@@ -45,10 +46,31 @@ export default function Contact() {
     return () => ctx.revert();
   }, []);
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    const mailtoLink = `mailto:sruthikeerthana1805@gmail.com?subject=Portfolio Inquiry from ${formState.name}&body=${encodeURIComponent(formState.message)}`;
-    window.open(mailtoLink, "_blank");
+    setStatus("sending");
+    try {
+      const res = await fetch("https://api.web3forms.com/submit", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          access_key: "7e479abb-0ad3-4bcd-aae0-345bac631849",
+          subject: `Portfolio Inquiry from ${formState.name}`,
+          name: formState.name,
+          email: formState.email,
+          message: formState.message,
+        }),
+      });
+      const data = await res.json();
+      if (data.success) {
+        setStatus("sent");
+        setFormState({ name: "", email: "", message: "" });
+      } else {
+        setStatus("error");
+      }
+    } catch {
+      setStatus("error");
+    }
   };
 
   return (
@@ -237,14 +259,26 @@ export default function Contact() {
               />
             </div>
 
-            <MagneticButton type="submit" variant="primary" className="w-full !py-3.5 group">
+            <MagneticButton type="submit" variant="primary" className="w-full !py-3.5 group" disabled={status === "sending"}>
               <span style={{ fontFamily: "var(--font-poppins), sans-serif" }} className="flex items-center justify-center gap-2.5 font-semibold text-sm tracking-wide text-white">
-                Send Message
-                <svg width="16" height="16" viewBox="0 0 16 16" fill="none" className="transition-transform duration-300 group-hover:translate-x-1">
-                  <path d="M14 2L7 9M14 2L10 14L7 9M14 2L2 6L7 9" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
-                </svg>
+                {status === "sending" ? "Sending..." : status === "sent" ? "Message Sent ✓" : "Send Message"}
+                {status !== "sending" && status !== "sent" && (
+                  <svg width="16" height="16" viewBox="0 0 16 16" fill="none" className="transition-transform duration-300 group-hover:translate-x-1">
+                    <path d="M14 2L7 9M14 2L10 14L7 9M14 2L2 6L7 9" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
+                  </svg>
+                )}
               </span>
             </MagneticButton>
+            {status === "sent" && (
+              <p className="text-sm text-center" style={{ color: "#2f9d8f" }}>
+                Thanks! Your message has been sent — I&apos;ll get back to you soon.
+              </p>
+            )}
+            {status === "error" && (
+              <p className="text-sm text-center text-red-400">
+                Something went wrong — please email me directly at sruthikeerthana1805@gmail.com
+              </p>
+            )}
           </form>
         </div>
       </div>

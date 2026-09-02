@@ -11,6 +11,7 @@ interface MagneticButtonProps {
   onClick?: () => void;
   strength?: number;
   variant?: "primary" | "outline" | "ghost";
+  disabled?: boolean;
 }
 
 export default function MagneticButton({
@@ -21,6 +22,7 @@ export default function MagneticButton({
   onClick,
   strength = 0.35,
   variant = "primary",
+  disabled = false,
 }: MagneticButtonProps) {
   const btnRef = useRef<HTMLElement>(null);
   const textRef = useRef<HTMLSpanElement>(null);
@@ -80,6 +82,7 @@ export default function MagneticButton({
     relative inline-flex items-center justify-center gap-2 
     px-8 py-4 rounded-full font-medium text-sm tracking-wide
     transition-colors duration-300 overflow-hidden cursor-pointer
+    ${disabled ? "opacity-60 cursor-not-allowed" : ""}
     ${baseStyles[variant]}
     ${className}
   `;
@@ -87,7 +90,7 @@ export default function MagneticButton({
   const Tag = href ? "a" : "button";
   const props = href
     ? { href, target: href.startsWith("http") ? "_blank" : undefined, rel: href.startsWith("http") ? "noopener noreferrer" : undefined }
-    : { type: type || "button", onClick };
+    : { type: type || "button", onClick, disabled };
 
   return (
     <Tag
