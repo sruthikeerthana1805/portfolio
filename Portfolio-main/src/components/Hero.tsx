@@ -5,7 +5,7 @@ import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import MagneticButton from "./MagneticButton";
 import GhostCursor from "./GhostCursor";
-import TextPressure from "./TextPressure";
+import AnimatedName from "./AnimatedName";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -213,7 +213,7 @@ export default function Hero() {
     >
       {/* ── React Bits Ghost Cursor Effect (Vibrant Orange Secondary Accent Glow) ── */}
       <GhostCursor
-        color="#FC6B2F"
+        color="#22D3EE"
         brightness={0.75}
         edgeIntensity={0}
         trailLength={35}
@@ -255,7 +255,7 @@ export default function Hero() {
         className="absolute left-1/2 top-[45%] -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] md:w-[800px] md:h-[800px] pointer-events-none opacity-0 z-[6]"
         style={{
           background:
-            "radial-gradient(circle, rgba(252,107,47,0.15) 0%, rgba(252,107,47,0.04) 35%, transparent 70%)",
+            "radial-gradient(circle, rgba(34,211,238,0.14) 0%, rgba(16,185,129,0.05) 40%, transparent 70%)",
           filter: "blur(40px)",
         }}
         aria-hidden="true"
@@ -275,7 +275,7 @@ export default function Hero() {
               width: `${p.size}px`,
               height: `${p.size}px`,
               background: p.isEmber
-                ? "rgba(252,107,47,0.5)"
+                ? "rgba(34,211,238,0.55)"
                 : "rgba(255,255,255,0.2)",
               top: `${p.top}%`,
               left: `${p.left}%`,
@@ -330,7 +330,7 @@ export default function Hero() {
         <MagneticButton
           href="#projects"
           variant="primary"
-          className="!rounded-full !px-7 !py-3.5 !text-[13px] !tracking-wide group shadow-[0_0_25px_rgba(160,42,34,0.4)]"
+          className="!rounded-full !px-7 !py-3.5 !text-[13px] !tracking-wide group shadow-[0_0_25px_rgba(34,211,238,0.4)]"
         >
           <span className="flex items-center gap-3">
             <span className="w-7 h-7 rounded-full border border-void/30 flex items-center justify-center transition-transform duration-500 group-hover:rotate-45">
@@ -365,24 +365,19 @@ export default function Hero() {
         className="absolute top-[35%] sm:top-[36%] md:top-[38%] left-1/2 -translate-x-1/2 -translate-y-1/2 z-[15] pointer-events-none select-none w-full flex flex-col items-center justify-center px-4"
         aria-hidden="true"
       >
-        <div className="w-full max-w-[700px] md:max-w-[850px] h-[100px] md:h-[135px] relative flex items-center justify-center scale-y-[1.15] transform-gpu drop-shadow-[0_0_35px_rgba(252,107,47,0.3)]">
-          <TextPressure
+        <div className="w-full max-w-[700px] md:max-w-[850px] relative flex items-center justify-center transform-gpu drop-shadow-[0_0_35px_rgba(34,211,238,0.25)]">
+          <AnimatedName
             text="SRUTHI"
-            flex={true}
-            alpha={false}
-            stroke={false}
-            width={true}
-            weight={true}
-            italic={true}
-            textColor="rgba(255, 255, 255, 0.88)"
-            minFontSize={36}
+            startDelay={3.0}
+            className="text-[clamp(3.2rem,11vw,7.8rem)] font-extrabold italic tracking-tight uppercase leading-none"
+            style={{ fontFamily: "var(--font-display)" }}
           />
         </div>
 
         {/* Small footer text at the base of upper-centered name */}
         <div ref={headlineRef} className="mt-3 md:mt-4 text-center z-[20]">
           <p
-            className="hero-line text-[clamp(0.72rem,1.08vw,0.88rem)] font-extrabold tracking-[0.25em] uppercase text-ember drop-shadow-[0_0_20px_rgba(252,107,47,0.7)]"
+            className="hero-line text-[clamp(0.72rem,1.08vw,0.88rem)] font-extrabold tracking-[0.25em] uppercase text-ember drop-shadow-[0_0_20px_rgba(16,185,129,0.7)]"
             style={{ fontFamily: "var(--font-poppins), sans-serif" }}
           >
             Crafting Interfaces That People Remember.

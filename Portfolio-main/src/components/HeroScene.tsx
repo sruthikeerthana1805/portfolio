@@ -35,7 +35,7 @@ function CentralCore() {
         <icosahedronGeometry args={[1, 3]} />
         <MeshDistortMaterial
           color="#0f0f12"
-          emissive="#FC6B2F"
+          emissive="#22D3EE"
           emissiveIntensity={0.15}
           roughness={0.2}
           metalness={0.8}
@@ -64,7 +64,7 @@ function OrbitalRings() {
       {/* Outer Ring */}
       <mesh rotation={[Math.PI / 3, 0, 0]}>
         <torusGeometry args={[3.2, 0.015, 16, 100]} />
-        <meshBasicMaterial color="#FC6B2F" transparent opacity={0.3} />
+        <meshBasicMaterial color="#10B981" transparent opacity={0.3} />
       </mesh>
       {/* Inner Ring */}
       <mesh rotation={[-Math.PI / 4, Math.PI / 6, 0]}>
@@ -116,7 +116,7 @@ function ParticleField({ count = 100 }: { count?: number }) {
   return (
     <instancedMesh ref={meshRef} args={[undefined, undefined, count]}>
       <sphereGeometry args={[1, 8, 8]} />
-      <meshBasicMaterial color="#FC6B2F" transparent opacity={0.4} />
+      <meshBasicMaterial color="#22D3EE" transparent opacity={0.4} />
     </instancedMesh>
   );
 }
@@ -132,8 +132,8 @@ export default function HeroScene() {
       >
         <ambientLight intensity={0.5} />
         <directionalLight position={[10, 10, 5]} intensity={1} color="#ffffff" />
-        <pointLight position={[-10, -10, -5]} intensity={0.8} color="#FC6B2F" />
-        <pointLight position={[0, 0, 5]} intensity={0.5} color="#FC6B2F" />
+        <pointLight position={[-10, -10, -5]} intensity={0.8} color="#22D3EE" />
+        <pointLight position={[0, 0, 5]} intensity={0.5} color="#10B981" />
 
         <CentralCore />
         <OrbitalRings />

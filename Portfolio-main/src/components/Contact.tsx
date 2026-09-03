@@ -89,7 +89,7 @@ export default function Contact() {
       <div
         className="absolute bottom-0 left-1/2 -translate-x-1/2 w-[800px] h-[400px] pointer-events-none"
         style={{
-          background: "radial-gradient(ellipse, rgba(252,107,47,0.12) 0%, transparent 70%)",
+          background: "radial-gradient(ellipse, rgba(16, 185, 129,0.12) 0%, transparent 70%)",
           filter: "blur(80px)",
         }}
         aria-hidden="true"

@@ -51,9 +51,9 @@ export default function Home() {
           displaySocials={true}
           displayItemNumbering={true}
           colors={["#0d0d0f", "#1e1e24"]}
-          accentColor="#A02A22"
+          accentColor="#22D3EE"
           menuButtonColor="#ffffff"
-          openMenuButtonColor="#A02A22"
+          openMenuButtonColor="#22D3EE"
         />
       )}
 

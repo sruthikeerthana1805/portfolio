@@ -49,9 +49,9 @@
 }
 
 .depth-carousel__card:hover {
-  border-color: rgba(160, 42, 34, 0.6);
+  border-color: rgba(34, 211, 238, 0.6);
   box-shadow:
-    0 30px 70px -15px rgba(252, 107, 47, 0.35),
+    0 30px 70px -15px rgba(16, 185, 129, 0.35),
     0 12px 30px -10px rgba(0, 0, 0, 0.8);
 }
 
@@ -94,8 +94,8 @@
 }
 
 .depth-carousel__arrow:hover {
-  background: #A02A22;
-  border-color: #B8342B;
+  background: #22D3EE;
+  border-color: #67E8F9;
   color: #ffffff;
 }
 
@@ -141,7 +141,7 @@
 
 .depth-carousel__dot.is-active {
   width: 24px;
-  background: #A02A22;
+  background: #22D3EE;
 }
 
 @media (prefers-reduced-motion: reduce) {

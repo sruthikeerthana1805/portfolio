@@ -14,7 +14,7 @@ const EXPERIENCES = [
     role: "Data Analytics Intern",
     duration: "2026",
     color: "var(--ember)",
-    glowColor: "rgba(160, 42, 34, 0.25)",
+    glowColor: "rgba(34, 211, 238, 0.25)",
     description:
       "Completed a data analytics internship covering the full pipeline from raw data to insight.",
     highlights: [
@@ -28,7 +28,7 @@ const EXPERIENCES = [
     role: "Full-Stack & GenAI Developer",
     duration: "2025 — Present",
     color: "var(--ember)",
-    glowColor: "rgba(160, 42, 34, 0.25)",
+    glowColor: "rgba(34, 211, 238, 0.25)",
     description:
       "Building full-stack, GenAI, and browser-based game projects independently and for hackathons.",
     highlights: [

@@ -71,7 +71,7 @@ export default function MagneticButton({
 
   const baseStyles: Record<string, string> = {
     primary:
-      "bg-ember text-white hover:bg-ember-bright border border-transparent shadow-[0_0_25px_rgba(160,42,34,0.4)]",
+      "bg-ember text-white hover:bg-ember-bright border border-transparent shadow-[0_0_25px_rgba(34, 211, 238,0.4)]",
     outline:
       "bg-transparent text-white border border-white/20 hover:border-ember/50 hover:text-ember",
     ghost:

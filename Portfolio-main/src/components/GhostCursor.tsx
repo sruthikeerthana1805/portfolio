@@ -39,7 +39,7 @@ const GhostCursor: React.FC<GhostCursorProps> = ({
   bloomThreshold = 0.025,
 
   brightness = 1,
-  color = '#FC6B2F',
+  color = '#22D3EE',
   mixBlendMode = 'screen',
   edgeIntensity = 0,
 
