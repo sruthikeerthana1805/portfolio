@@ -7,8 +7,11 @@ import ScrollProgress from "@/components/ScrollProgress";
 import StaggeredMenu from "@/components/StaggeredMenu";
 import Hero from "@/components/Hero";
 import Introduction from "@/components/Introduction";
+import About from "@/components/About";
+import Skills from "@/components/Skills";
 import Projects from "@/components/Projects";
 import Experience from "@/components/Experience";
+import Education from "@/components/Education";
 import Contact from "@/components/Contact";
 
 export default function Home() {
@@ -34,8 +37,11 @@ export default function Home() {
         <StaggeredMenu
           position="left"
           items={[
+            { label: "About", ariaLabel: "Go to About section", link: "#about" },
+            { label: "Skills", ariaLabel: "Go to Skills section", link: "#skills" },
             { label: "Projects", ariaLabel: "Go to Projects section", link: "#projects" },
             { label: "Experience", ariaLabel: "Go to Experience section", link: "#experience" },
+            { label: "Education", ariaLabel: "Go to Education section", link: "#education" },
             { label: "Contact", ariaLabel: "Go to Contact section", link: "#contact" },
           ]}
           socialItems={[
@@ -58,8 +64,11 @@ export default function Home() {
           <Hero />
 
           <Introduction />
+          <About />
+          <Skills />
           <Projects />
           <Experience />
+          <Education />
           <Contact />
         </main>
       </SmoothScroll>
